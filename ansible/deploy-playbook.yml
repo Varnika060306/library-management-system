@@ -120,7 +120,7 @@
     - name: "[Phase 5] Wait for deployment to be ready"
       command: >
         kubectl rollout status deployment/{{ app_name }}
-        -n {{ k8s_namespace }} --timeout=300s
+        -n {{ k8s_namespace }} --timeout=900s
       register: rollout_status
       changed_when: false
 
