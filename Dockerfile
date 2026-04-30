@@ -19,14 +19,14 @@ COPY src ./src
 RUN mvn clean package -DskipTests -B
 
 # Stage 2: Create the runtime image
-FROM eclipse-temurin:17-jre-alpine
+FROM eclipse-temurin:17-jre-jammy
 
 LABEL maintainer="DevOps Team <devops@library.com>"
 LABEL description="Library Management System - Runtime"
 LABEL version="1.0.0"
 
 # Create non-root user for security
-RUN addgroup -S libraryapp && adduser -S libraryuser -G libraryapp
+RUN groupadd -r libraryapp && useradd -r -g libraryapp libraryuser 
 
 WORKDIR /app
 
