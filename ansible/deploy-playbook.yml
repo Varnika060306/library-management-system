@@ -7,7 +7,7 @@
 
 - name: Deploy Library Management System
   hosts: localhost
-  become: yes
+  become: no
   gather_facts: yes
 
   vars:
